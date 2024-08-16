@@ -1,7 +1,2 @@
-# Game-Manager-Example
- 
-Attributions:  
-https://not-jam.itch.io/not-jam-music-pack  
-https://brackeysgames.itch.io/brackeys-platformer-bundle  
-https://shapeforms.itch.io/shapeforms-audio-free-sfx  
-https://jdsherbert.itch.io/ultimate-ui-sfx-pack  
+# IMPORTANTE:
+## La branch main está rota y no econtré la forma de arreglarla. Por favor mirar la branch inicio.
