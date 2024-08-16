@@ -13,22 +13,24 @@ public class GameLogic : MonoBehaviour
     private bool isNotEnded;
     public float negativeOffset = 1;
 
-    public AudioClip soundSpace;
+    public AudioClip clipSpaceKey;
 
+    // Start is called before the first frame update
     void Start()
     {
         ResetScene();
     }
 
+    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space) && isNotEnded)
         {
-            SoundManager.Instance.PlaySound(soundSpace);
+            SoundManager.Instance.PlaySound(clipSpaceKey);
             if (!isOn)
             {
                 //presiona Espacio sin haber iniciado el juego
-                txtStartDirections.text = "Press Space when time reachs 0.";
+                txtStartDirections.text = "Press Space when time reaches 0.";
                 isOn = true;
             }
             else
@@ -50,7 +52,7 @@ public class GameLogic : MonoBehaviour
                 //cambia a la escena Results
             }
         }
-        
+
 
         if (isOn)
         {
@@ -71,7 +73,7 @@ public class GameLogic : MonoBehaviour
     }
 
     void ResetScene()
-    {        
+    {
         isOn = false;
         isNotEnded = true;
         time = startTime;
