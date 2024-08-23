@@ -12,11 +12,13 @@ public class GameLogic : MonoBehaviour
     public bool isOn = false;
     private bool isNotEnded;
     public float negativeOffset = 1;
+    public GameObject resultsButton;
 
     // Start is called before the first frame update
     void Start()
     {
         ResetScene();
+        resultsButton.SetActive(false);
     }
 
     // Update is called once per frame
@@ -27,7 +29,7 @@ public class GameLogic : MonoBehaviour
             if (!isOn)
             {
                 //presiona Espacio sin haber iniciado el juego
-                txtStartDirections.text = "Press Space when time reachs 0.";
+                txtStartDirections.text = "Press Space when time reaches 0.";
                 isOn = true;
             }
             else
@@ -46,7 +48,7 @@ public class GameLogic : MonoBehaviour
             }
             if (Input.GetKeyDown(KeyCode.R))
             {
-                //cambia a la escena Results
+                GameManager.Instance.ChangeScene("Results");
             }
         }
         
@@ -81,6 +83,13 @@ public class GameLogic : MonoBehaviour
 
     void GameEnded()
     {
+        resultsButton.SetActive(true);
         txtStartDirections.text = "Press P to play again or R.";
+        GameManager.Instance.score = time;
+        float hiscore = GameManager.Instance.hiscore;
+        if (Mathf.Abs(time) < hiscore)
+        {
+            GameManager.Instance.hiscore = time;
+        }
     }
 }
